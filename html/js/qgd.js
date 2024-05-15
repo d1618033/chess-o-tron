@@ -1600,3 +1600,4 @@ var qgd_puzzles = [
 { url: "https://lichess.org/kkhN1h4C", moves: "1. d4 d5 2. c4 e6 3. Nf3 Nf6 4. Nc3 Nc6 5. Bg5 Be7 6. e3 O-O 7. Bd3 h6 8. Bh4 dxc4 9. Bxc4 Ne4 10. Bxe7 Qxe7??" },
 { url: "https://lichess.org/kE4LYpON", moves: "1. d4 d5 2. c4 e6 3. Qa4+ Bd7 4. Qa5 Nc6 5. Qb5??" },
 { url: "https://lichess.org/gUnNdt7R", moves: "1. d4 d5 2. c4 e6 3. Qc2 c6 4. Nc3 Be7 5. Nf3 Nd7 6. Bf4 Nf8 7. e3 h5 8. Bg3??" },
+];
