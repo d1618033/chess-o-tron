@@ -6,23 +6,6 @@
     <title>Blunder-Bomb</title>
     <meta name="description" content="find blunder bomb in chess">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-    <!-- analytics -->
-    <script>
-        (function(i, s, o, g, r, a, m) {
-            i['GoogleAnalyticsObject'] = r;
-            i[r] = i[r] || function() {
-                (i[r].q = i[r].q || []).push(arguments)
-            }, i[r].l = 1 * new Date();
-            a = s.createElement(o),
-                m = s.getElementsByTagName(o)[0];
-            a.async = 1;
-            a.src = g;
-            m.parentNode.insertBefore(a, m)
-        })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
-
-        ga('create', 'UA-88665830-1', 'auto');
-        ga('send', 'pageview');
-    </script>
     <link rel="stylesheet" href="css/styles.css">
     <link rel="stylesheet" href="css/chessboard-0.3.0.min.css">
     <link rel="stylesheet" href="css/blunder-bomb.css">
@@ -31,7 +14,7 @@
 <body>
 
     <div align="center" style="width: 100%;">
-        <h2>Blunder-bomb-<a href="https://tailuge.github.io/chess-o-tron/">o-tron</a></h2>
+        <h2>Blunder-bomb-<a href="https://d1618033.github.io/chess-o-tron/">o-tron</a></h2>
         <div><i>Identify the
         <select id="puzzleType" onChange="selectPuzzle(this)">
         </select>
@@ -93,11 +76,8 @@
     <script src="js/chess.min.js"></script>
 
     <!-- puzzle data -->
-    <script src="js/kg.js"></script>
-    <script src="js/bertin.js"></script>
     <script src="js/caro.js"></script>
-    <script src="js/mcdonnell.js"></script>
-    <script src="js/allpuzzles.js"></script>
+    <script src="js/qgd.js"></script>
 
     <!-- code -->
     <script src="js/chessutils.js"></script>
