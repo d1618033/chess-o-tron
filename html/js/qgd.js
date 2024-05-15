@@ -1,3 +1,4 @@
+var qgd_puzzles = [
 { url: "https://lichess.org/uCwoT5tJ", moves: "1. d4 d5 2. c4 e6 3. a3 c5 4. e3 Nc6 5. Nf3 a6 6. Nc3 Nf6 7. Be2 dxc4 8. Bxc4 cxd4 9. exd4 b5 10. Be2 Be7 11. Be3 Bb7 12. O-O O-O 13. b4 Qc7 14. Qb3 Bd6 15. Bg5 Ng4 16. h3 Nh2 17. Rad1??" },
 { url: "https://lichess.org/PkyEafAx", moves: "1. d4 d5 2. c4 e6 3. a3 c5 4. Nc3 Nf6 5. Nf3 Nc6 6. Bg5 Be7 7. cxd5 exd5 8. dxc5 d4 9. Nb5 Qa5+ 10. b4 Qxb5??" },
 { url: "https://lichess.org/sSHUH9qd", moves: "1. d4 d5 2. c4 e6 3. a3 c6 4. Nc3 f5 5. Bf4 Nf6 6. e3 Bd6 7. Bxd6 Qxd6 8. c5 Qc7 9. b4 O-O 10. f4 Ne4 11. Nge2 a5 12. g3 axb4 13. axb4 Rxa1 14. Qxa1 Na6 15. Nxe4 fxe4 16. Qc3 b6 17. Bh3 bxc5 18. bxc5 Qb7 19. O-O Qb4 20. Qxb4 Nxb4 21. Rb1 Nc2 22. Rb8 Nxe3??" },
