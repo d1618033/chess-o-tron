@@ -5,7 +5,7 @@
 
 'use strict';
 
-var puzzles = kg_puzzles;
+var puzzles = [];
 
 var tried = 0;
 var correct = 0;
@@ -22,7 +22,7 @@ var selectedValue = 'p';
 
 function initialiseDropDown() {
     all_puzzles['Caro'] = caro_puzzles;
-    all_puzzles['QGD'] = caro_puzzles;
+    all_puzzles['QGD'] = qgd_puzzles;
 
     var $selectDropdown = $('#puzzleType');
     $.each(all_puzzles, function(key) {
