@@ -6,86 +6,62 @@
     <title>Blunder-Bomb</title>
     <meta name="description" content="find blunder bomb in chess">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-    <link rel="stylesheet" href="css/styles.css">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <link rel="stylesheet" href="css/styles.css"> -->
     <link rel="stylesheet" href="css/chessboard-0.3.0.min.css">
-    <link rel="stylesheet" href="css/blunder-bomb.css">
+    <!-- <link rel="stylesheet" href="css/blunder-bomb.css"> -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 </head>
 
 <body>
-
-    <div align="center" style="width: 100%;">
-        <h2>Blunder-bomb-<a href="https://d1618033.github.io/chess-o-tron/">o-tron</a></h2>
-        <div><i>Identify the
-        <select id="puzzleType" onChange="selectPuzzle(this)">
-        </select>
-        blunders - all data extracted from <a href="https://database.lichess.org/">database.lichess.org</a></i></div>
-        <br/>
-        <div class="container">
-            <div class="column-left">
-                <div class="newhighscore">
-                    <div>
-                        New highscore. Enter your lichess username
-                    </div>
-                    <input type="text" id="player" />
-                    <br/>
-                    <input type="button" id="sendscore" value="Submit" onclick="this.blur();" />
-                </div>
-                <div class="outcome">
-                    <div id="outcometext">
-                    </div>
-                    <br/>
-                    <div id="bestmove">
-                    </div>
-                    <br/>
-                    <input type="button" id="continue" value="Continue (Spacebar)" onclick="this.blur();" />
-                </div>
-            </div>
-            <div class="column-center">
-                <div id="board"></div>
-                <br/>
-                <input type="button" id="next" value="Move (Spacebar)" onclick="this.blur();" />
-                <input type="button" id="blunder" value="Blunder (B)" onclick="this.blur();" />
-                <br/>
-                <div id="outcome"></div>
-
-                <div id="timer">Clock: 60 s</div>&emsp;&emsp;&emsp;
-                <div id="score">Score: 0/0</div>
-<br/>
-                <input type="button" id="start" value="Start highscore attempt" onclick="startHighscoreAttempt(); this.blur();" />
-                <p>Progress Card:</p>
-                <div id="history" style="width: 80%; max-width: 425px;"></div>
-            </div>
-            <div class="column-right">
-                <div class="highscoretable" id="highscoretable">
-                </div>
-            </div>
+    <div class="container-fluid">
+        <div class="row">
+          <h2>Blunder-bomb-<a href="https://d1618033.github.io/chess-o-tron/">o-tron</a></h2>
+          <div><i>Identify the
+          <select id="puzzleType" onChange="selectPuzzle(this)">
+          </select>
+          blunders - all data extracted from <a href="https://database.lichess.org/">database.lichess.org</a></i></div>
+          <br/>
         </div>
-        <br/>
 
 
-        <br />
-        <div style="width: 80%;"><small><i>Step through the moves of the games using the spacebar until you see a blunder. If you identify the blunder you score a point.
-        If you miss it or think a good move is a blunder you fail. Click the link in the progress section to see the game on lichess that explains the blunder.
-        The games all start out drawn (zero eval in Stockfish) and the objective is to train yourself to spot blunders when they happen in a passage of play.</i></small></div>
-
+        <div class="outcome row h-10">
+            <div id="outcometext">
+            </div>
+            <br/>
+            <div id="bestmove">
+            </div>
+            <br/>
+            <input type="button" id="continue" value="Continue (Spacebar)" onclick="this.blur();" />
+        </div>
+        <div class="row h-50 max-vh-50 max-vw-50" style="max-height: 500px; max-width: 500px">
+            <div id="board"></div>
+        </div>
+        <div class="row h-30">
+            <input class="col btn btn-danger" type="button" id="blunder" value="(B)lunder" onclick="this.blur();" />
+            <input class="col btn btn-success" type="button" id="next" value="(Space)" onclick="this.blur();" />
+        </div>
+        <div class="row h-10" id="outcome"></div>
+        <div class="row h-10" id="history"></div>
     </div>
 
     <!-- libraries -->
-    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.0/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.0/jquery.min.js"></script>
     <script src="js/chessboard-0.3.0.min.js"></script>
     <script src="js/chess.min.js"></script>
 
     <!-- puzzle data -->
     <script src="js/caro.js"></script>
+    <script src="js/alapin.js"></script>
     <script src="js/qgd.js?v=1"></script>
     <script src="js/allpuzzles.js"></script>
 
     <!-- code -->
     <script src="js/chessutils.js"></script>
     <script src="js/blunder-bomb.js?v=1"></script>
-    <script src="js/blunder-scores.js"></script>
     <script src="js/queryParam.js"></script>
-
     <!-- to extract data
 
     time grep "%eval" lichess_db_standard_rated_2017-06.pgn | sed 's/{[^}]*}//g' | sed -r 's/[0-9]{1,2}\.\.\. //g' | sed 's/??.*//' |sed 's/[?!]//g'| sed 's/  / /g' | grep -v '10\.' | egrep 'c6 2\. .* d5 3\.' | sort | uniq -c | sort -r -n | head -100 | cut -c9- | sed 's/\(.*\)/"\1",/'

@@ -23,6 +23,7 @@ var selectedValue = 'p';
 function initialiseDropDown() {
     all_puzzles['Caro'] = caro_puzzles;
     all_puzzles['QGD'] = qgd_puzzles;
+    all_puzzles['Alapin'] = alapin_puzzles;
 
     var $selectDropdown = $('#puzzleType');
     $.each(all_puzzles, function(key) {
@@ -41,17 +42,7 @@ function description(material) {
     if (/[aeiou]+/.test(material)) {
         return material;
     }
-    return material
-        .replace(/n/g, "♞")
-        .replace(/b/g, "♝")
-        .replace(/r/g, "♜")
-        .replace(/q/g, "♛")
-        .replace(/p/g, "♟")
-        .replace(/N/g, "♘")
-        .replace(/B/g, "♗")
-        .replace(/R/g, "♖")
-        .replace(/Q/g, "♕")
-        .replace(/P/g, "♙");
+    return material;
 }
 
 function pawnCount(fen, n) {
@@ -194,10 +185,6 @@ function enterNextPuzzleState() {
 }
 
 function keyHandler(e) {
-    if ($('.newhighscore').css("visibility") !== "hidden") {
-        return;
-    }
-
     if (e.which == 32) {
         nextMove();
         e.preventDefault();
@@ -213,7 +200,6 @@ function init() {
     $('#next').on('click', nextMove);
     $('#continue').on('click', enterNextPuzzleState);
     $(document).on('keypress', keyHandler);
-    fetchHighScores();
 
     var puzzle = getParameterByName('p');
     if (puzzle === null) {
