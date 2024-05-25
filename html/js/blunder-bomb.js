@@ -22,6 +22,7 @@ var selectedValue = 'p';
 
 function initialiseDropDown() {
     all_puzzles['Caro'] = caro_puzzles;
+    all_puzzles['Quick'] = quick_puzzles;
     all_puzzles['QGD'] = qgd_puzzles;
     all_puzzles['Alapin'] = alapin_puzzles;
 
