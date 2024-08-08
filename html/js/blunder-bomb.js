@@ -25,6 +25,8 @@ function initialiseDropDown() {
     all_puzzles['Quick'] = quick_puzzles;
     all_puzzles['QGD'] = qgd_puzzles;
     all_puzzles['Alapin'] = alapin_puzzles;
+    all_puzzles['Pirc'] = pirc;
+    all_puzzles['Scandi'] = scandi;
 
     var $selectDropdown = $('#puzzleType');
     $.each(all_puzzles, function(key) {
